@@ -41,9 +41,12 @@ export class GPSTrackerService {
     nextVehicleSegment(info: VehicleSegmentsViewModel) {
         this.vehicleService.getSegmentInfoForVehicle(info.vehicle)
             .subscribe((d: SegmentInfo) => {
-                d.DestinationETA = new Date(d.DestinationETA);
-                d.OriginDateTime = new Date(d.OriginDateTime);
-
+                let dt = new Date(d.DestinationETA);
+                d.DestinationETA = new Date(dt.getUTCFullYear(), dt.getUTCMonth(), dt.getUTCDay(), dt.getUTCHours(), dt.getUTCMinutes(), dt.getUTCSeconds());
+                
+                dt = new Date(d.OriginDateTime);
+                d.OriginDateTime = new Date(dt.getUTCFullYear(), dt.getUTCMonth(), dt.getUTCDay(), dt.getUTCHours(), dt.getUTCMinutes(), dt.getUTCSeconds());
+                
                 d.RMInfo = {
                     TravelTimeInSeconds: Math.round((d.DestinationETA.getTime() - d.OriginDateTime.getTime()) / 1000)
                 };

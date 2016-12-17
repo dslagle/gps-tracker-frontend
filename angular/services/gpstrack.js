@@ -2,6 +2,13 @@
 var SegmentInfo = (function () {
     function SegmentInfo() {
     }
+    SegmentInfo.Empty = {
+        OriginDateTime: undefined,
+        Origin: { Latitude: 0, Longitude: 0 },
+        Destination: { Latitude: 0, Longitude: 0 },
+        DestinationStopName: "",
+        DestinationETA: undefined,
+    };
     return SegmentInfo;
 }());
 exports.SegmentInfo = SegmentInfo;

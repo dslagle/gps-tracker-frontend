@@ -1,3 +1,8 @@
 a.selected, a.selected:hover {
     background-color: #51A3FF;
 }
+
+ul.vehicle-dropdown {
+    max-height: 300px;
+    overflow: scroll;
+}

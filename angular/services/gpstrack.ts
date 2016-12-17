@@ -1,6 +1,14 @@
 import { Vehicle } from "../model/vehicle";
 
 export class SegmentInfo {
+    static Empty: SegmentInfo = {
+        OriginDateTime: undefined,
+        Origin: { Latitude: 0, Longitude: 0 },
+        Destination: { Latitude: 0, Longitude: 0 },
+        DestinationStopName: "",
+        DestinationETA: undefined,
+    };
+
     OriginDateTime: Date;
     Origin: GPS;
     Destination: GPS;
